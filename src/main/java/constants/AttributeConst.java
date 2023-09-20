@@ -46,7 +46,21 @@ public enum AttributeConst {
     REP_ID("id"),
     REP_DATE("report_date"),
     REP_TITLE("title"),
-    REP_CONTENT("content_msg");
+    REP_CONTENT("content_msg"),
+
+    //勤務管理
+    WORKMANAGEMENT("workmanagemenet"),
+    WORKMANAGEMENTS("workmanagements"),
+    WOR_COUNT("workmanagement_count"),
+    WOR_ID("id"),
+    WOR_GO("go_time"),
+    WOR_BACK("back_time"),
+    WOR_DATE("work_date"),
+    WOR_YEAR("work_year"),
+    WOR_MONTH("work_month"),
+    WOR_DAY("work_day"),
+
+    dammy("dammy");
 
     private final String text;
     private final Integer i;

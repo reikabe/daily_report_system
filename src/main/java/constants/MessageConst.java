@@ -12,6 +12,11 @@ public enum MessageConst {
     I_REGISTERED("登録が完了しました。"),
     I_UPDATED("更新が完了しました。"),
     I_DELETED("削除が完了しました。"),
+    I_GO("出勤時刻を登録しました。"),
+    I_BACK("退勤時刻を登録しました。"),
+    I_NOT_GO("出勤時刻が登録されておりません。"),
+    I_GO_EXIST("出勤時刻は既に登録されています。"),
+    I_BACK_EXIST("退勤時刻は既に登録されています。"),
 
     //バリデーション
     E_NONAME("氏名を入力してください。"),

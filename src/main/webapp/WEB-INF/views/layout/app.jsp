@@ -7,6 +7,7 @@
 <c:set var="actEmp" value="${ForwardConst.ACT_EMP.getValue()}" />
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="actAuth" value="${ForwardConst.ACT_AUTH.getValue()}" />
+<c:set var="actWork" value="${ForwardConst.ACT_WORK.getValue()}" />
 
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commOut" value="${ForwardConst.CMD_LOGOUT.getValue()}" />
@@ -35,6 +36,7 @@
                 <div id="employee_name">
                     <c:out value="${sessionScope.login_employee.name}" />
                     &nbsp;さん&nbsp;&nbsp;&nbsp;
+                    <a href="<c:url value='?action=${actWork}&command=${commIdx}' />">勤務管理　</a>
                     <a href="<c:url value='?action=${actAuth}&command=${commOut}' />">ログアウト</a>
                 </div>
             </c:if>

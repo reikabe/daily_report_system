@@ -42,9 +42,20 @@ public interface JpaConst {
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
 
+    //勤務管理テーブル
+    String TABLE_WOR = "workmanagements"; //テーブル名
+
+    //勤務管理テーブルカラム
+    String WOR_COL_ID = "id";
+    String WOR_COL_EMP = "employee_id";
+    String WOR_COL_DATE = "workmanagement_date";
+    String WOR_COL_GO = "go_time";
+    String WOR_COL_BACK = "back_time";
+
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
+    String ENTITY_WOR = "workmanagement"; //勤務管理
 
     //JPQL内パラメータ
     String JPQL_PARM_CODE = "code"; //社員番号
@@ -84,4 +95,23 @@ public interface JpaConst {
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
 
+    //全ての出勤時間をidの降順に取得
+    String Q_WOR_GET_ALL = ENTITY_WOR + ".getAll";
+    String Q_WOR_GET_ALL_DEF = "SELECT w FROM Workmanagement AS w ORDER BY w.id DESC";
+
+    //全ての出勤件数を取得
+    String Q_WOR_COUNT = ENTITY_WOR + ".count";
+    String Q_WOR_COUNT_DEF = "SELECT COUNT(w) FROM Workmanagement AS w";
+
+    //指定した従業員の現在月の出勤時間を全件取得
+    String Q_WOR_GET_ALL_MINE = ENTITY_WOR + ".getAllMine";
+    String Q_WOR_GET_ALL_MINE_DEF = "SELECT w FROM Workmanagement AS w WHERE YEAR(workmanagement_date) = YEAR(NOW()) and MONTH(workmanagement_date) = MONTH(NOW()) and w.employee = :" + JPQL_PARM_EMPLOYEE;
+
+    //指定した従業員の現在月の出勤件数を取得
+    String Q_WOR_COUNT_MINE = ENTITY_WOR + ".countAllMine";
+    String Q_WOR_COUNT_MINE_DEF = "SELECT COUNT(w) FROM Workmanagement AS w WHERE YEAR(workmanagement_date) = YEAR(NOW()) and MONTH(workmanagement_date) = MONTH(NOW()) and w.employee = :" + JPQL_PARM_EMPLOYEE;
+
+  //workmanagementテーブルの指定した社員番号と日付のデータを取得する
+    String Q_WOR_GET_EMPLOYEEDATE = ENTITY_WOR + ".getEmployeeDate";
+    String Q_WOR_GET_EMPLOYEEDATE_DEF = "SELECT w FROM Workmanagement AS w WHERE w.employee = :" + JPQL_PARM_EMPLOYEE + " AND workmanagement_date = DATE(NOW())";
 }

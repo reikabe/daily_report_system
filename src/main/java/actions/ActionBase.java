@@ -61,10 +61,10 @@ public abstract class ActionBase {
         Method commandMethod;
         try {
 
-            //パラメータからcommandeを取得
+            //パラメータからcommandを取得
             String command = request.getParameter(ForwardConst.CMD.getValue());
 
-            //ommandに該当するメソッドを実行する
+            //commandに該当するメソッドを実行する
             //(例: action=Employee command=show の場合 EmployeeActionクラスのshow()メソッドを実行する)
 
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);

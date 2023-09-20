@@ -10,6 +10,7 @@ public enum ForwardConst {
    ACT_EMP("Employee"),
    ACT_REP("Report"),
    ACT_AUTH("Auth"),
+   ACT_WORK("Workmanagement"),
 
    //command
    CMD("command"),
@@ -21,6 +22,8 @@ public enum ForwardConst {
    CMD_LOGOUT("logout"),
    CMD_NEW("entryNew"),
    CMD_CREATE("create"),
+   CMD_CREATE_GO("create_go"),
+   CMD_CREATE_BACK("create_back"),
    CMD_EDIT("edit"),
    CMD_UPDATE("update"),
    CMD_DESTROY("destroy"),
@@ -36,7 +39,10 @@ public enum ForwardConst {
    FW_REP_INDEX("reports/index"),
    FW_REP_SHOW("reports/show"),
    FW_REP_NEW("reports/new"),
-   FW_REP_EDIT("reports/edit");
+   FW_REP_EDIT("reports/edit"),
+   FW_WOR_INDEX("workmanagement/index"),
+   FW_WOR_NEW("workmanagement/new"),
+   FW_WOR_EDIT("workmanagement/edit");
 
    /**
     * 文字列

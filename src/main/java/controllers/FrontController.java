@@ -23,13 +23,13 @@ public class FrontController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //パラメーラに該当するAcrionクラスのインスタンス
+        //パラメータに該当するActionクラスのインスタンス
         ActionBase action = getAction(request,response);
 
         //サーブレットコンテキスト、リクエスト、レスポンスをActionインスタンスのフィールドに設定
         action.init(getServletContext(),request,response);
 
-        //Actonクラスの処理を呼び出し
+        //Actionクラスの処理を呼び出し
         action.process();
 
     }
@@ -46,7 +46,7 @@ public class FrontController extends HttpServlet {
      * @return
      */
 
-    @SuppressWarnings({"rewtypes","unchecked"}) //コンパイラ警告を抑制
+    @SuppressWarnings({"rawtypes","unchecked"}) //コンパイラ警告を抑制
     private ActionBase getAction(HttpServletRequest request, HttpServletResponse response) {
         Class type = null;
         ActionBase action = null;
@@ -68,7 +68,7 @@ public class FrontController extends HttpServlet {
 
             //リクエストパラメータに設定されている"action"の値が不正の場合(例:action=xxxxx 等、該当するActionクラスがない場合)
             //エラー処理を行うActionオブジェクトを作成
-
+            e.printStackTrace();
             action = new UnknownAction();
 
         }

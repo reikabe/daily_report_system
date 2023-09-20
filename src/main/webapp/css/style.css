@@ -163,3 +163,16 @@ font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans
 h3 {
     font-size: larger;
 }
+
+#workmanagement_list .work_day {
+    width: 20px;
+}
+
+#workmanagement_list .work_go {
+    width: 20px;
+}
+
+#workmanagement_list .work_back {
+    width: 20px;
+}
+
