@@ -61,6 +61,7 @@ public interface JpaConst {
     String JPQL_PARM_CODE = "code"; //社員番号
     String JPQL_PARM_PASSWORD = "password"; //パスワード
     String JPQL_PARM_EMPLOYEE = "employee"; //従業員
+    String JPQL_PARM_YEARMONTH = "yearmonth"; //年月
 
     //NamedQueryの nameとquery
     //全ての従業員をidの降順に取得する
@@ -105,7 +106,7 @@ public interface JpaConst {
 
     //指定した従業員の現在月の出勤時間を全件取得
     String Q_WOR_GET_ALL_MINE = ENTITY_WOR + ".getAllMine";
-    String Q_WOR_GET_ALL_MINE_DEF = "SELECT w FROM Workmanagement AS w WHERE YEAR(workmanagement_date) = YEAR(NOW()) and MONTH(workmanagement_date) = MONTH(NOW()) and w.employee = :" + JPQL_PARM_EMPLOYEE;
+    String Q_WOR_GET_ALL_MINE_DEF = "SELECT w FROM Workmanagement AS w WHERE YEAR(workmanagement_date) = YEAR(:" + JPQL_PARM_YEARMONTH + ") and MONTH(workmanagement_date) = MONTH(:" + JPQL_PARM_YEARMONTH + ") and w.employee = :" + JPQL_PARM_EMPLOYEE;
 
     //指定した従業員の現在月の出勤件数を取得
     String Q_WOR_COUNT_MINE = ENTITY_WOR + ".countAllMine";

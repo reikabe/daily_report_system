@@ -164,15 +164,10 @@ h3 {
     font-size: larger;
 }
 
-#workmanagement_list .work_day {
-    width: 20px;
+#workmanagement_list {
+    width: 60%;
 }
 
-#workmanagement_list .work_go {
-    width: 20px;
+h2 input {
+    width: 130px;
 }
-
-#workmanagement_list .work_back {
-    width: 20px;
-}
-

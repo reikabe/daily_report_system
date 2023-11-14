@@ -78,7 +78,7 @@ public class Workmanagement {
      *
      */
 
-    @Column(name = JpaConst.WOR_COL_GO,nullable = false)
+    @Column(name = JpaConst.WOR_COL_GO,nullable = true)
     private LocalDateTime goTime;
 
     /**

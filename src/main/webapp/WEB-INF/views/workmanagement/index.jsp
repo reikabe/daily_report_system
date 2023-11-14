@@ -15,7 +15,16 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>${work_year}年　${work_month}月の勤務履歴</h2>
+        <form method="POST" action="<c:url value='?action=${actWork}&command=${commIdx}' />">
+            <h2>
+                <input type="number" name="${AttributeConst.WOR_YEAR.getValue()}" value='${work_year}'/>
+                年　
+                <input type="number" name="${AttributeConst.WOR_MONTH.getValue()}" value='${work_month}'/>
+                月の勤務履歴
+            </h2>
+            <button type="submit">更新</button>
+        </form>
+
         <a href="<c:url value='?action=${actWork}&command=${commNew}' />">出退勤の登録はこちら</a>
         <table id="workmanagement_list">
             <tbody>

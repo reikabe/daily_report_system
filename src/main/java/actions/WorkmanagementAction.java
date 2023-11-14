@@ -51,15 +51,29 @@ import services.WorkmanagementService;
             List<String> gotime = new LinkedList<>();
             List<String> backtime = new LinkedList<>();
 
-            //現在の日付を取得
+            //リクエストスコープに値が入っていないときのみ現在の日付を取得
+
             LocalDate now = LocalDate.now();
 
             LocalDate firstdate = now.with(TemporalAdjusters.firstDayOfMonth());
             LocalDate lastdate = now.with(TemporalAdjusters.lastDayOfMonth());
 
+            if(getRequestParam(AttributeConst.WOR_MONTH) != null){
+
+                String month = getRequestParam(AttributeConst.WOR_MONTH);
+
+                if(Integer.parseInt(getRequestParam(AttributeConst.WOR_MONTH)) -10 < 0) {
+                    month = "0"+getRequestParam(AttributeConst.WOR_MONTH);
+                }
+                String date = getRequestParam(AttributeConst.WOR_YEAR)+"-"+month+"-01";
+                firstdate = LocalDate.parse(date,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                lastdate = firstdate.with(TemporalAdjusters.lastDayOfMonth());
+                now = firstdate;
+            }
+
             //月の勤務履歴のデータを取得
             EmployeeView loginEmployee = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
-            List<WorkmanagementView> workdate = service.getAllMine(loginEmployee);
+            List<WorkmanagementView> workdate = service.getAllMine(loginEmployee,firstdate);
 
             //月の日付の数だけ取得
             for(int i = firstdate.getDayOfMonth();i <= lastdate.getDayOfMonth();i++) {

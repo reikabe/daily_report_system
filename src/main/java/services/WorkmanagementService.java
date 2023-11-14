@@ -36,10 +36,11 @@ public class WorkmanagementService extends ServiceBase{
      * 指定した従業員の勤務データを取得し、WorkmanagementViewのリストで返却する
      * @return 一覧画面に表示するデータのリスト
      */
-    public List<WorkmanagementView> getAllMine(EmployeeView employee)
+    public List<WorkmanagementView> getAllMine(EmployeeView employee,LocalDate yearmonth)
 {
         List<Workmanagement> workmanagements = em.createNamedQuery(JpaConst.Q_WOR_GET_ALL_MINE, Workmanagement.class)
                 .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(employee))
+                .setParameter(JpaConst.JPQL_PARM_YEARMONTH, yearmonth)
                 .getResultList();
         return WorkmanagementConverter.toViewList(workmanagements);
     }
